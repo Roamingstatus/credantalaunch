@@ -19,7 +19,7 @@
   <!-- Navigation -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#" class="nav__brand">
+      <a href="#hero" class="nav__brand">
         <img class="nav__logo" src="./assets/Credanta.png" alt="Credanta" width="240" height="68" />
       </a>
       <nav class="nav__links" aria-label="Main navigation">
@@ -301,6 +301,10 @@
             <p class="beta-card__text">Designed by professionals who understand the friction of modern onboarding and credential management.</p>
           </div>
           <form class="beta-form" id="beta-form" novalidate>
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="beta-form__field">
               <label for="email" class="sr-only">Email address</label>
               <input
@@ -309,10 +313,14 @@
                 name="email"
                 placeholder="you@company.com"
                 required
+                maxlength="254"
                 autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
               />
               <button type="submit" class="btn btn--primary">Request Early Access</button>
             </div>
+            <div id="turnstile-container" class="turnstile-container" hidden></div>
             <p class="beta-form__message" id="form-message" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -324,15 +332,15 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#" class="footer__logo-link">
-          <img class="footer__logo" src="./assets/Credanta.png" alt="Credanta" width="280" height="80" />
+        <a href="#hero" class="footer__logo-link">
+          <img class="footer__logo" src="./assets/Credanta.png" alt="Credanta" width="280" height="80" loading="lazy" decoding="async" />
         </a>
         <p class="footer__by">A <a href="https://nexgarden.io" target="_blank" rel="noopener noreferrer">NexusGarden</a> project</p>
       </div>
       <nav class="footer__links" aria-label="Footer navigation">
         <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
-        <a href="mailto:hello@credanta.com">Contact</a>
+        <a href="mailto:support@credantaapp.com">Contact</a>
       </nav>
       <p class="footer__copy">&copy; <span id="year"></span> Credanta. All rights reserved.</p>
     </div>

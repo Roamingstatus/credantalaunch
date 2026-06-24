@@ -256,6 +256,15 @@ button, input {
   transform: scale(0.98);
 }
 
+.btn:focus-visible,
+.nav__links a:focus-visible,
+.nav__toggle:focus-visible,
+.footer__links a:focus-visible,
+.nav__mobile a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
 .btn--primary {
   background: var(--text);
   color: white;
@@ -344,6 +353,7 @@ button, input {
   max-width: 520px;
   margin: 0 auto;
   width: 100%;
+  overflow: hidden;
 }
 
 .dashboard {
@@ -891,6 +901,26 @@ button, input {
   margin-bottom: 32px;
 }
 
+.beta-form {
+  position: relative;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.turnstile-container {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
 .beta-form__field {
   display: flex;
   flex-direction: column;
@@ -917,6 +947,16 @@ button, input {
   outline: none;
   border-color: var(--blue);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.beta-form__field input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.beta-form__field input[aria-invalid="true"] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
 }
 
 .beta-form__field .btn {

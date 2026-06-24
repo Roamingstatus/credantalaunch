@@ -1,5 +1,3 @@
-const STORAGE_KEY = 'credanta_beta_signups';
-
 // ── Navigation scroll state ──
 const nav = document.getElementById('nav');
 const navToggle = document.querySelector('.nav__toggle');
@@ -65,32 +63,57 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // ── Beta signup ──
 const form = document.getElementById('beta-form');
 const messageEl = document.getElementById('form-message');
+const MAX_EMAIL_LENGTH = 254;
+const EMAIL_PATTERN = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 
-function getLocalSignups() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  } catch {
-    return [];
-  }
-}
+let isSubmitting = false;
+let turnstileToken = null;
 
-function saveLocalSignup(email) {
-  const signups = getLocalSignups();
-  signups.push({ email, timestamp: new Date().toISOString() });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(signups));
+function isValidEmail(value) {
+  if (!value || value.length > MAX_EMAIL_LENGTH) return false;
+  if (/[\r\n\0]/.test(value)) return false;
+  return EMAIL_PATTERN.test(value);
 }
 
 function showMessage(text, type) {
   messageEl.textContent = text;
   messageEl.className = `beta-form__message beta-form__message--${type}`;
+  const emailInput = form?.querySelector('#email');
+  if (emailInput) {
+    emailInput.setAttribute('aria-invalid', type === 'error' ? 'true' : 'false');
+  }
 }
 
-async function submitSignup(email) {
+function loadTurnstile(siteKey) {
+  const container = document.getElementById('turnstile-container');
+  if (!container || !siteKey) return;
+
+  container.hidden = false;
+  const script = document.createElement('script');
+  script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  script.async = true;
+  script.onload = () => {
+    window.turnstile?.render(container, {
+      sitekey: siteKey,
+      callback: (token) => { turnstileToken = token; },
+      'expired-callback': () => { turnstileToken = null; },
+      'error-callback': () => { turnstileToken = null; },
+    });
+  };
+  document.head.appendChild(script);
+}
+
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+if (turnstileSiteKey) {
+  loadTurnstile(turnstileSiteKey);
+}
+
+async function submitSignup(payload) {
   try {
     const res = await fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify(payload),
     });
 
     const data = await res.json().catch(() => ({}));
@@ -103,47 +126,75 @@ async function submitSignup(email) {
       return { success: false, message: 'You\'re already on the list!' };
     }
 
-    throw new Error(data.error || 'Server error');
-  } catch {
-    const existing = getLocalSignups();
-    if (existing.some((s) => s.email.toLowerCase() === email.toLowerCase())) {
-      return { success: false, message: 'You\'re already on the list!' };
+    if (res.status === 429) {
+      return { success: false, message: 'Too many attempts. Please wait a few minutes and try again.' };
     }
-    saveLocalSignup(email);
-    return { success: true, fallback: true };
+
+    return {
+      success: false,
+      message: data.error || 'Something went wrong. Please try again or email support@credantaapp.com directly.',
+    };
+  } catch {
+    return {
+      success: false,
+      message: 'Unable to reach the server. Please try again or email support@credantaapp.com directly.',
+    };
   }
 }
 
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (isSubmitting) return;
+
   const input = form.querySelector('#email');
+  const honeypot = form.querySelector('#website');
   const email = input.value.trim();
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (honeypot?.value.trim()) {
+    form.querySelector('.beta-form__field').hidden = true;
+    showMessage('Input received, loading Credanta.....', 'success');
+    setTimeout(() => {
+      window.location.href = 'https://credantaapp.com';
+    }, 8000);
+    return;
+  }
+
+  if (!isValidEmail(email)) {
     showMessage('Please enter a valid email address.', 'error');
     input.focus();
     return;
   }
 
+  if (turnstileSiteKey && !turnstileToken) {
+    showMessage('Please complete the verification check.', 'error');
+    return;
+  }
+
+  isSubmitting = true;
   const btn = form.querySelector('button[type="submit"]');
   btn.disabled = true;
   btn.textContent = 'Submitting…';
   showMessage('', '');
 
-  const result = await submitSignup(email);
-
-  if (result.success) {
-    showMessage(
-      result.fallback
-        ? 'You\'re on the list! We\'ll be in touch soon.'
-        : 'You\'re on the list! Check your inbox for updates.',
-      'success'
-    );
-    input.value = '';
-  } else {
-    showMessage(result.message || 'Something went wrong. Please try again.', 'error');
+  const payload = { email, website: honeypot?.value ?? '' };
+  if (turnstileToken) {
+    payload.cfTurnstileResponse = turnstileToken;
   }
 
+  const result = await submitSignup(payload);
+
+  if (result.success) {
+    form.querySelector('.beta-form__field').hidden = true;
+    document.getElementById('turnstile-container')?.remove();
+    showMessage('Input received, loading Credanta.....', 'success');
+    setTimeout(() => {
+      window.location.href = 'https://credantaapp.com';
+    }, 8000);
+    return;
+  }
+
+  showMessage(result.message || 'Something went wrong. Please try again.', 'error');
+  isSubmitting = false;
   btn.disabled = false;
   btn.textContent = 'Request Early Access';
 });
