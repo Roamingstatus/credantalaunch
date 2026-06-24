@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Credanta — Credentials secured, monitored, and easily shared. Professional readiness, organized." />
+  <meta name="theme-color" content="#f8fafc" />
+  <meta property="og:title" content="Credanta — Your professional documents. Ready anywhere." />
+  <meta property="og:description" content="Securely organize, monitor, and share credentials, certifications, resumes, and onboarding documents from one intelligent workspace." />
+  <meta property="og:type" content="website" />
+  <title>Credanta — Professional Readiness, Organized</title>
+  <link rel="icon" href="./assets/Credanta.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__brand">
+        <img class="nav__logo" src="./assets/Credanta.png" alt="Credanta" width="240" height="68" />
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#beta" class="nav__cta">Join Beta</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" hidden>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#beta">Join Beta</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__tagline">Credentials secured, monitored, and easily shared.</p>
+          <h1 class="hero__headline">Your professional documents.<br />Ready anywhere.</h1>
+          <p class="hero__sub">Credanta helps professionals securely organize, monitor, and share credentials, certifications, resumes, and onboarding documents from one intelligent workspace.</p>
+          <p class="hero__support">Professional readiness, organized.</p>
+          <div class="hero__actions">
+            <a href="#beta" class="btn btn--primary">Join Beta</a>
+            <a href="#features" class="btn btn--secondary">Explore Features</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="dashboard">
+            <div class="dashboard__bar">
+              <span class="dashboard__dot"></span>
+              <span class="dashboard__dot"></span>
+              <span class="dashboard__dot"></span>
+            </div>
+            <div class="dashboard__body">
+              <div class="dashboard__sidebar">
+                <div class="dashboard__nav-item dashboard__nav-item--active"></div>
+                <div class="dashboard__nav-item"></div>
+                <div class="dashboard__nav-item"></div>
+                <div class="dashboard__nav-item"></div>
+              </div>
+              <div class="dashboard__main">
+                <div class="dashboard__header-row">
+                  <div class="dashboard__title-block"></div>
+                  <div class="dashboard__badge"></div>
+                </div>
+                <div class="dashboard__cards">
+                  <div class="dashboard__card dashboard__card--wide"></div>
+                  <div class="dashboard__card"></div>
+                  <div class="dashboard__card"></div>
+                </div>
+                <div class="dashboard__list">
+                  <div class="dashboard__list-item"></div>
+                  <div class="dashboard__list-item"></div>
+                  <div class="dashboard__list-item dashboard__list-item--short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card--1">
+            <span class="float-card__icon float-card__icon--warn" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+            </span>
+            <div>
+              <p class="float-card__label">Expiring Soon</p>
+              <p class="float-card__value">BLS Cert · 14 days</p>
+            </div>
+          </div>
+          <div class="float-card float-card--2">
+            <span class="float-card__icon float-card__icon--success" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+            </span>
+            <div>
+              <p class="float-card__label">Resume Ready</p>
+              <p class="float-card__value">Updated today</p>
+            </div>
+          </div>
+          <div class="float-card float-card--3">
+            <span class="float-card__icon float-card__icon--info" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+            </span>
+            <div>
+              <p class="float-card__label">Packet Generated</p>
+              <p class="float-card__value">6 documents</p>
+            </div>
+          </div>
+          <div class="float-card float-card--4">
+            <span class="float-card__icon float-card__icon--purple" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-.077l.076-.077-3-3a4 4 0 015.656-5.656l3 3a4 4 0 01-.225 5.865.75.75 0 00-.977.077l-.076.077 3-3z"/><path d="M11.603 7.963a.75.75 0 00-.977.077l-.076.077 3 3a4 4 0 01-.225 5.865.75.75 0 00.977.077l.076-.077-3-3a4 4 0 01.225-5.865z"/></svg>
+            </span>
+            <div>
+              <p class="float-card__label">Recruiter Link Shared</p>
+              <p class="float-card__value">Secure · 7-day access</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section section--problem" id="problem">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Professional onboarding is still fragmented.</h2>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+            </div>
+            <h3>Repeated uploads</h3>
+            <p>Same documents uploaded again and again for every application and onboarding step.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <h3>Scattered credentials</h3>
+            <p>Certifications, licenses, and IDs spread across email, drives, and paper folders.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Missed expiration dates</h3>
+            <p>Credentials lapse without warning, causing last-minute scrambles and compliance gaps.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            </div>
+            <h3>Recruiter document chaos</h3>
+            <p>Assembling the right files for recruiters becomes a manual, error-prone process.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3>Onboarding delays</h3>
+            <p>Missing paperwork stalls start dates and creates unnecessary back-and-forth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section section--features" id="features">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Built for modern professional workflows.</h2>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h3>Secure Document Vault</h3>
+            <p>Store certifications, resumes, IDs, licenses, and onboarding documents.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </div>
+            <h3>Expiration Monitoring</h3>
+            <p>Track expiring credentials with reminders.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3>Packet Generation</h3>
+            <p>Generate recruiter-ready document packets instantly.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            </div>
+            <h3>Resume Enhancer</h3>
+            <p>Optimize resumes for modern hiring workflows.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3>Smart Checklist Tracking</h3>
+            <p>Identify missing onboarding documents automatically.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            </div>
+            <h3>Shareable Recruiter Links</h3>
+            <p>Securely share selected documents with recruiters.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section--steps" id="how-it-works">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">How it works</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+            </div>
+            <h3>Upload Documents</h3>
+            <p>Add your credentials, resume, and onboarding files in one secure place.</p>
+          </div>
+          <div class="step__connector" aria-hidden="true"></div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3>Organize &amp; Monitor</h3>
+            <p>Track expirations, fill gaps, and keep everything current automatically.</p>
+          </div>
+          <div class="step__connector" aria-hidden="true"></div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            </div>
+            <h3>Share &amp; Apply Faster</h3>
+            <p>Send recruiter-ready packets and secure links in seconds, not hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Vision -->
+    <section class="section section--vision" id="vision">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Growing into a professional readiness platform.</h2>
+        </div>
+        <div class="vision-grid">
+          <article class="vision-card">
+            <span class="vision-card__dot" aria-hidden="true"></span>
+            <h3>One-click submissions</h3>
+            <p>Apply and onboard with a single, verified document profile.</p>
+          </article>
+          <article class="vision-card">
+            <span class="vision-card__dot" aria-hidden="true"></span>
+            <h3>AI onboarding assistance</h3>
+            <p>Intelligent guidance through complex credential requirements.</p>
+          </article>
+          <article class="vision-card">
+            <span class="vision-card__dot" aria-hidden="true"></span>
+            <h3>Smart compliance workflows</h3>
+            <p>Automated checks against industry and employer standards.</p>
+          </article>
+          <article class="vision-card">
+            <span class="vision-card__dot" aria-hidden="true"></span>
+            <h3>Universal credential portability</h3>
+            <p>Your verified credentials, recognized everywhere you go.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beta / Social Proof -->
+    <section class="section section--beta" id="beta">
+      <div class="container">
+        <div class="beta-card">
+          <div class="beta-card__content">
+            <h2 class="section__title">Built from real workflow frustrations.</h2>
+            <p class="beta-card__text">Designed by professionals who understand the friction of modern onboarding and credential management.</p>
+          </div>
+          <form class="beta-form" id="beta-form" novalidate>
+            <div class="beta-form__field">
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn btn--primary">Request Early Access</button>
+            </div>
+            <p class="beta-form__message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo-link">
+          <img class="footer__logo" src="./assets/Credanta.png" alt="Credanta" width="280" height="80" />
+        </a>
+        <p class="footer__by">A <a href="https://nexgarden.io" target="_blank" rel="noopener noreferrer">NexusGarden</a> project</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="mailto:hello@credanta.com">Contact</a>
+      </nav>
+      <p class="footer__copy">&copy; <span id="year"></span> Credanta. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Privacy modal anchor -->
+  <div id="privacy" class="privacy-note">
+    <div class="container">
+      <p>We respect your privacy. Your email is used only for beta access updates. No spam, ever.</p>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

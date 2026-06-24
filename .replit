@@ -1,0 +1,11 @@
+run = "npm run build && npm start"
+entrypoint = "index.html"
+modules = ["nodejs-20"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "npm run build && npm start"]
+build = ["sh", "-c", "npm install && npm run build"]
+deploymentTarget = "cloudrun"
